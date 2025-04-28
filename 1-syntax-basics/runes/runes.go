@@ -7,4 +7,6 @@ func main() {
 	fmt.Println('B') // 66
 	fmt.Println('€') // 8364
 	fmt.Println('\t') // 9
+	fmt.Println(true)
+	fmt.Println(false)
 }
