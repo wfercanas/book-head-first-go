@@ -34,6 +34,7 @@ func main() {
 		"Perfect life",
 	}
 	fmt.Println(books)
+	fmt.Printf("%#v\n", books)
 
 	var dates [3]time.Time
 	dates[0] = time.Unix(1257894000, 0)
