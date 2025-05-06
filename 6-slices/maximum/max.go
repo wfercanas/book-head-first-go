@@ -33,7 +33,5 @@ func main() {
 	}
 
 	max := maximum(numbers...)
-	
-
 	fmt.Printf("max: %.2f\n", max)
 }
