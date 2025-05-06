@@ -9,7 +9,7 @@ import (
 func GetFloats(filename string) ([]float64, error) {
 	file, err := os.Open(filename)
 	if err != nil {
-		return make([]float64, 0), err
+		return nil, err
 	}
 
 	floats := make([]float64, 0)
@@ -17,7 +17,7 @@ func GetFloats(filename string) ([]float64, error) {
 	for scanner.Scan() {
 		number, err := strconv.ParseFloat(scanner.Text(), 64)
 		if err != nil {
-			return make([]float64, 0), err
+			return nil, err
 		}
 
 		floats = append(floats, number)	
@@ -25,11 +25,11 @@ func GetFloats(filename string) ([]float64, error) {
 
 	err = file.Close()
 	if err != nil {
-		return make([]float64, 0), err
+		return nil, err
 	}
 
 	if scanner.Err() != nil {
-		return make([]float64, 0), err
+		return nil, err
 	}
 
 	return floats, nil
