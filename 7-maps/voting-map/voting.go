@@ -17,9 +17,7 @@ func main() {
 		votes[line]++
 	}
 	
-	// for i, name := range votes {
-	// 	fmt.Printf("%v: %d\n", name, votes[i])
-	// }
-
-	fmt.Println(votes)
+	for name, count := range votes {
+		fmt.Printf("Votes for %s: %d\n", name, count)
+	}
 }
