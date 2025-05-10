@@ -22,9 +22,14 @@ func defaultSubscriber(name string) subscriber {
 	return s
 }
 
+func applyDiscount(s *subscriber) {
+	s.rate = 4.99
+}
+
 func main() {
 	subscriber1 := defaultSubscriber("Aman Singh")
 	subscriber2 := defaultSubscriber("Beth Ryan")
+	applyDiscount(&subscriber1)
 	printInfo(subscriber1)
 	printInfo(subscriber2)
 }
