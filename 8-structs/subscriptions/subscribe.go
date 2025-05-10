@@ -2,18 +2,19 @@ package main
 
 import "fmt"
 
+type subscriber struct {
+	name   string
+	rate   float64
+	active bool
+}
+
 func main() {
-	var subscriber struct {
-		name   string
-		rate   float64
-		active bool
-	}
+	var subscriber1 subscriber
+	subscriber1.name = "Aman Singh"
+	subscriber1.rate = 4.99
+	subscriber1.active = true
 
-	subscriber.name = "Aman Singh"
-	subscriber.rate = 4.99
-	subscriber.active = true
-
-	fmt.Println("Name:", subscriber.name)
-	fmt.Println("Rate:", subscriber.rate)
-	fmt.Println("Active:", subscriber.active)
+	fmt.Println("Name:", subscriber1.name)
+	fmt.Println("Rate:", subscriber1.rate)
+	fmt.Println("Active:", subscriber1.active)
 }
