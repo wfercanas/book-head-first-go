@@ -16,8 +16,14 @@ func main() {
 
 	employee := subscription.Employee{Name: "Joey", Salary: 60000}
 
+	address := subscription.Address{Street: "ABC 123", City: "Miami", State: "FL", PostalCode: "123456"}
+	subscriber1.HomeAddress = address
+	subscriber2.HomeAddress = address
+	subscriber2.HomeAddress.City = "Orlando"
+
 	fmt.Println(subscriber1)
 	fmt.Println(subscriber2)
 	fmt.Println(subscriber3)
 	fmt.Println(employee)
+	fmt.Println(address)
 }
