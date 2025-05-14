@@ -8,8 +8,8 @@ func (n *Number) Double() {
 	*n *= 2
 }
 
-func (n Number) Triple() {
-	n *= 3
+func (n Number) Print() {
+	fmt.Println(n)
 }
 
 func main() {
@@ -18,6 +18,6 @@ func main() {
 	fmt.Println(number)
 
 	address := &number
-	address.Triple()
+	address.Print()
 	fmt.Println(number)
 }
