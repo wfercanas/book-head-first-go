@@ -7,17 +7,24 @@ import (
 )
 
 func main() {
-	coordinates := geo.Coordinates{}
-	err := coordinates.SetLatitude(37)
+	landmark := geo.Landmark{}
+
+	err := landmark.SetName("The Googleplex")
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	err = coordinates.SetLongitude(-110)
+	err = landmark.SetLatitude(37)
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	fmt.Println(coordinates.Latitude())
-	fmt.Println(coordinates.Longitude())
+	err = landmark.SetLongitude(-110)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Println(landmark.Name())
+	fmt.Println(landmark.Latitude())
+	fmt.Println(landmark.Longitude())
 }
