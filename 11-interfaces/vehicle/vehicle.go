@@ -39,13 +39,21 @@ type Vehicle interface {
 	Steer(direction string)
 }
 
+func TryVehicle(vehicle Vehicle) {
+	vehicle.Accelerate()
+	vehicle.Steer("left")
+	vehicle.Steer("right")
+	vehicle.Brake()
+	truck, ok := vehicle.(Truck)
+	if ok {
+		truck.LoadCargo("test cargo")
+	}
+}
+
 func main() {
 	var vehicle Vehicle
 	vehicle = Car("Toyota")
-	vehicle.Accelerate()
-	vehicle.Steer("left")
-
+	TryVehicle(vehicle)
 	vehicle = Truck("MAN")
-	vehicle.Brake()
-	vehicle.Steer("right")
+	TryVehicle(vehicle)
 }
