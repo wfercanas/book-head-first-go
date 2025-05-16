@@ -2,7 +2,12 @@ package main
 
 import "tape/gadget"
 
-func playList(device gadget.TapePlayer, songs []string) {
+type Player interface {
+	Play(string)
+	Stop()
+}
+
+func playList(device Player, songs []string) {
 	for _, song := range songs {
 		device.Play(song)
 	}
@@ -10,7 +15,10 @@ func playList(device gadget.TapePlayer, songs []string) {
 }
 
 func main() {
-	player := gadget.TapePlayer{}
+	var player Player
+	player = gadget.TapeRecorder{}
 	mixtape := []string{"Jessie's Girl", "Whip it", "9 to 5"}
+	playList(player, mixtape)
+	player = gadget.TapePlayer{}
 	playList(player, mixtape)
 }
