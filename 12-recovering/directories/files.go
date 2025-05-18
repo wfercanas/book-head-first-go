@@ -3,14 +3,13 @@ package main
 import (
 	"fmt"
 	"io/ioutil"
-	"log"
 	"path/filepath"
 )
 
-func scanDirectory(dir string) error {
+func scanDirectory(dir string) {
 	content, err := ioutil.ReadDir(dir)
 	if err != nil {
-		return err
+		panic(err)
 	}
 
 	for _, item := range content {
@@ -21,13 +20,8 @@ func scanDirectory(dir string) error {
 			fmt.Println(filePath)
 		}
 	}
-
-	return nil
 }
 
 func main() {
-	err := scanDirectory("dir")
-	if err != nil {
-		log.Fatal(err)
-	}
+	scanDirectory("dir")
 }
