@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"io/ioutil"
+	"os"
 	"path/filepath"
 )
 
@@ -19,7 +19,7 @@ func reportPanic() {
 }
 
 func scanDirectory(dir string) {
-	content, err := ioutil.ReadDir(dir)
+	content, err := os.ReadDir(dir)
 	if err != nil {
 		panic(err)
 	}
