@@ -7,8 +7,8 @@ import (
 	"net/http"
 )
 
-func main() {
-	response, err := http.Get("https://example.com")
+func responseSize(url string) {
+	response, err := http.Get(url)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -19,5 +19,12 @@ func main() {
 		log.Fatal(err)
 	}
 
-	fmt.Println(string(body))
+	fmt.Println(url, len(body))
+
+}
+
+func main() {
+	responseSize("https://example.com")
+	responseSize("https://golang.org")
+	responseSize("https://golang.org/docs")
 }
