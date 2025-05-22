@@ -10,4 +10,6 @@ func main() {
 	fmt.Println("A photo of", join.JoinWithCommas(phrases))
 	phrases = append(phrases, "a prize bull")
 	fmt.Println("A photo of", join.JoinWithCommas(phrases))
+	phrases = []string{"my parents"}
+	fmt.Println("A photo of", join.JoinWithCommas(phrases))
 }
