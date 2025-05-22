@@ -1,37 +1,25 @@
 package join
 
 import (
-	"fmt"
 	"testing"
 )
 
-func errorString(list []string, got, want string) string {
-	return fmt.Sprintf("JoinWithCommas(%#v) = \"%s\", want \"%s\" ", list, got, want)
+type testData struct {
+	list   []string
+	expect string
 }
 
-func TestOneElement(t *testing.T) {
-	list := []string{"apple"}
-	want := "apple"
-	got := JoinWithCommas(list)
-	if want != got {
-		t.Error(errorString(list, got, want))
+func TestJoinWithCommas(t *testing.T) {
+	tests := []testData{
+		{list: []string{"apple"}, expect: "apple"},
+		{list: []string{"apple", "orange"}, expect: "apple and orange"},
+		{list: []string{"apple", "orange", "pear"}, expect: "apple, orange, and pear"},
 	}
-}
 
-func TestTwoElements(t *testing.T) {
-	list := []string{"apple", "orange"}
-	want := "apple and orange"
-	got := JoinWithCommas(list)
-	if want != got {
-		t.Error(errorString(list, got, want))
-	}
-}
-
-func TestThreeElements(t *testing.T) {
-	list := []string{"apple", "orange", "pear"}
-	want := "apple, orange, and pear"
-	got := JoinWithCommas(list)
-	if want != got {
-		t.Error(errorString(list, got, want))
+	for _, test := range tests {
+		got := JoinWithCommas(test.list)
+		if got != test.expect {
+			t.Errorf("JoinWithCommas(%#v) = \"%s\", want \"%s\" ", test.list, got, test.expect)
+		}
 	}
 }
